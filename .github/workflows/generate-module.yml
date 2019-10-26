@@ -14,7 +14,7 @@ jobs:
     - name: Setup Java
       uses: actions/setup-java@v1
       with:
-        java-version: '12.2.3'
+        java-version: '12.0.2'
         architecture: x64
 
     - name: Call standalone generator
