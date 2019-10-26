@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout sources
-      uses: actions/checkout@latest
+      uses: actions/checkout@v1
 
     # see https://github.com/actions/setup-java
     - name: Setup Java
@@ -17,5 +17,8 @@ jobs:
         java-version: '12.2.3'
         architecture: x64
 
-#    - name: Build
-#      run: java -cp java HelloWorldApp
+    - name: Call standalone generator
+      run: ./.github/scripts/perform-generation.sh
+      env:
+        MODEL_NAME: 'MultiHook.mostapp'
+        MODULE_NAME: 'Zikula/MultiHookModule'
