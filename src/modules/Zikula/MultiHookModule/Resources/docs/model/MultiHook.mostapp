@@ -1,0 +1,150 @@
+application "MultiHook" targets ZK30 {
+    documentation "Handle autolinks, abbreviations, acronyms and censoring."
+    vendor "Zikula"
+    author "Zikula Team"
+    email "info@ziku.la"
+    url "https://ziku.la"
+    version "6.1.0"
+    prefix "multih"
+    generateAccountApi false
+    generateSearchApi false
+    generateListBlock false
+    generateDetailBlock false
+    generateModerationBlock false
+    generateListContentType false
+    generateDetailContentType false
+    generateModerationPanel false
+    generatePendingContentSupport false
+    generateExternalControllerAndFinder false
+    generateScribitePlugins false
+    generateRssTemplates false
+    generateAtomTemplates false
+    generateCsvTemplates false
+    generateXmlTemplates false
+    generateJsonTemplates false
+    generateKmlTemplates false
+    generateIcsTemplates false
+    filterHookProvider ENABLED
+    skipFiles "
+        DependencyInjection/ZikulaMultiHookExtension.php,
+        Helper/HookHelper.php,
+        HookProvider/FilterHooksProvider.php
+    "
+    markFiles "
+        Resources/config/services.yml
+    "
+    entities {
+        entity "entry" leading {
+            nameMultiple "entries"
+            displayPattern "#shortForm#"
+            fields {
+                string "shortForm" {
+                    length 100
+                },
+                string "longForm" translatable {
+                    documentation "The URL, in the case of a link; ignored for censored words."
+                    mandatory false
+                },
+                string "title" translatable {
+                    documentation "Only necessary for a link; ignored for censored words."
+                    mandatory false
+                },
+                list "entryType" {
+                    length 10
+                    items {
+                        listItem "Abbreviation" ( "abbr" ),
+                        listItem "Acronym" ("acronym"),
+                        listItem "Link" ("link"),
+                        listItem "Censored word" ("censor")
+                    }
+                },
+                boolean "active" ajaxTogglability  {
+                    defaultValue "true"
+                    mandatory false
+                }
+            }
+            actions {
+                mainAction "Index",
+                viewAction "View",
+                editAction "Edit"
+            }
+        }
+    }
+    variables {
+        varContainer "generalSettings" {
+            fields {
+                boolean "showEditLink" {
+                    defaultValue "true"
+                    mandatory false
+                },
+                boolean "replaceOnlyFirstInstanceOfItems" {
+                    defaultValue "false"
+                    mandatory false
+                },
+                boolean "applyReplacementsToCodeTags" {
+                    defaultValue "false"
+                    mandatory false
+                }
+            }
+        },
+        varContainer "abbreviationsAndAcronyms" {
+            sortOrder 2
+            fields {
+                boolean "replaceAbbreviations" {
+                    defaultValue "true"
+                    mandatory false
+                },
+                boolean "replaceAcronyms" {
+                    defaultValue "true"
+                    mandatory false
+                },
+                boolean "replaceAbbreviationsWithLongText" {
+                    defaultValue "false"
+                    mandatory false
+                }
+            }
+        },
+        varContainer "automaticLinks" {
+            sortOrder 3
+            fields {
+                boolean "replaceLinks" {
+                    defaultValue "true"
+                    mandatory false
+                },
+                boolean "replaceLinksWithTitle" {
+                    defaultValue "false"
+                    mandatory false
+                },
+                string "cssClassForExternalLinks" {
+                    mandatory false
+                }
+            }
+        },
+        varContainer "censor" {
+            sortOrder 4
+            fields {
+                boolean "replaceCensoredWords" {
+                    defaultValue "true"
+                    mandatory false
+                },
+                boolean "replaceCensoredWordsWhenTheyArePartOfOtherWords" {
+                    defaultValue "false"
+                    mandatory false
+                },
+                boolean "doNotCensorFirstAndLastLetterInWordsWithMoreThanTwoChars" {
+                    defaultValue "false"
+                    mandatory false
+                }
+            }
+        },
+        varContainer "needles" {
+            sortOrder 5
+            fields {
+                boolean "replaceNeedles" {
+                    defaultValue "true"
+                    mandatory false
+                }
+            }
+        }
+    }
+}
