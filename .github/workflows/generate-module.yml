@@ -18,7 +18,7 @@ jobs:
         architecture: x64
 
     - name: Call standalone generator
-      uses: guite/generator-action@master
-      with:
-        model-name: 'MultiHook.mostapp'
-        module-name: 'Zikula/MultiHookModule'
+      run: ./.github/scripts/perform-generation.sh
+      env:
+        MODEL_NAME: 'MultiHook.mostapp'
+        MODULE_NAME: 'Zikula/MultiHookModule'
