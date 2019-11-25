@@ -1,0 +1,24 @@
+name: Generate module 2
+# This workflow is triggered on pushes to the repository.
+on: [push]
+
+jobs:
+  build:
+    # This job runs on Linux
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout sources
+      uses: actions/checkout@v1
+
+    # see https://github.com/actions/setup-java
+    - name: Setup Java
+      uses: actions/setup-java@v1
+      with:
+        java-version: '12.0.2'
+        architecture: x64
+
+    - name: Call standalone generator
+      uses: guite/generator-action@master
+      with:
+        model-name: 'MultiHook.mostapp'
+        module-name: 'Zikula/MultiHookModule'
