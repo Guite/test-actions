@@ -10,7 +10,7 @@ jobs:
     - name: Checkout sources
       uses: actions/checkout@v1
 
-    - name: Build test
+    - name: Build and test
       uses: guite/zikula-action@master
       with:
         vendor-name: 'Zikula'
