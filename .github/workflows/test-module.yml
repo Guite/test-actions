@@ -16,7 +16,7 @@ jobs:
         vendor-name: 'Zikula'
         module-name: 'MultiHook'
         module-version: '1.0.0'
-        core-version: 'ZK30DEV'
+        core-version: 'ZK3DEV'
         create-artifacts: true
 
     - name: Upload tar archive as artifact
