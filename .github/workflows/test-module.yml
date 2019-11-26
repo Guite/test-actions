@@ -18,3 +18,12 @@ jobs:
         module-version: '1.0.0'
         core-version: 'ZK30DEV'
         create-artifacts: true
+
+    - uses: actions/upload-artifact@master
+      with:
+        name: tar-archive
+        path: './ZikulaMultiHookModule_v1.0.0.tar.gz'
+    - uses: actions/upload-artifact@master
+      with:
+        name: zip-archive
+        path: './ZikulaMultiHookModule_v1.0.0.zip'
