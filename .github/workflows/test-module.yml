@@ -28,6 +28,8 @@ jobs:
         module-version: '1.0.0'
         core-version: 'ZK3DEV'
         create-artifacts: true
+      env:
+        DATABASE_URL: mysql://root:zikula@127.0.0.1:${{ job.services.mysql.ports['3306'] }}/zikula
 
     - name: Upload tar archive as artifact
       uses: actions/upload-artifact@master
