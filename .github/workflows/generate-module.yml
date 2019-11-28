@@ -1,11 +1,15 @@
 name: Generate module
 # This workflow is triggered on pushes to the repository.
 # TODO trigger after standalone generator is built instead
+#on: repository_dispatch
 on:
   push:
     branches-ignore:
       - generator-update
-#on: repository_dispatch
+#you could also do it regularly
+#on:
+#  schedule:
+#    - cron:  '0 12 * * *'
 
 jobs:
   build:
@@ -46,10 +50,6 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         #branch: ${{ GENERATOR_BRANCH }}
         branch: 'generator-update'
-    #- name: Push changes to generator-update branch
-      ##run: git push --set-upstream origin ${{ GENERATOR_BRANCH }}
-      #run: |
-        #git push --set-upstream origin generator-update
 
     # see https://github.com/vsoch/pull-request-action
     - name: Create pull request
