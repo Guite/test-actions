@@ -10,15 +10,15 @@ jobs:
     - name: Checkout sources
       uses: actions/checkout@v1
 
-    # see https://github.com/actions/setup-java
-    - name: Setup Java
-      uses: actions/setup-java@v1
-      with:
-        java-version: '12.0.2'
-        architecture: x64
-
     - name: Call standalone generator
       uses: guite/generator-action@master
       with:
         model-name: 'MultiHook.mostapp'
         module-name: 'Zikula/MultiHookModule'
+
+    - name: Call standalone generator (verbose)
+      uses: guite/generator-action@master
+      with:
+        model-name: 'MultiHook.mostapp'
+        module-name: 'Zikula/MultiHookModule'
+        verbose: true
