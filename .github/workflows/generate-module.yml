@@ -31,16 +31,16 @@ jobs:
 
     - name: Set output variables
       run: |
-        echo ::set-env name=PULL_REQUEST_TITLE::::"Generator update $(date +%d-%m-%Y)"
+        echo ::set-env name=PULL_REQUEST_TITLE::"Generator update $(date +%d-%m-%Y)"
         echo ::set-env name=PULL_REQUEST_BODY::"This PR was auto-generated on $(date +%d-%m-%Y) \
-          with latest generator using [generator-action](https://github.com/Guite/generator-action/) :rocket:"
+          with latest generator using [generator-action](https://github.com/Guite/generator-action/) :white_check_mark:"
 
     # see https://github.com/peter-evans/create-pull-request
     - name: Commit changes and create/update pull request
       uses: peter-evans/create-pull-request@v1
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-        commit-message: update generated code
+        commit-message: 'update generated code :rocket:'
         title: ${{ env.PULL_REQUEST_TITLE }}
         body: ${{ env.PULL_REQUEST_BODY }}
         branch: generator-update
