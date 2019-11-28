@@ -31,28 +31,28 @@ jobs:
         module_name: 'Zikula/MultiHookModule'
         verbose: true
 
-      - name: Commit files
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git commit -a -m "Regenerated using latest generator :rocket:"
+    - name: Commit files
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git commit -a -m "Regenerated using latest generator :rocket:"
 
-      # see https://github.com/ad-m/github-push-action
-      #- name: Push changes to generator-update branch
-      #  uses: ad-m/github-push-action@master
-      #  with:
-      #    github_token: ${{ secrets.GITHUB_TOKEN }}
-      #    branch: ${{ GENERATOR_BRANCH }}
-      - name: Push changes to generator-update branch
-        run: |
-          git push --set-upstream origin ${{ GENERATOR_BRANCH }}
+    # see https://github.com/ad-m/github-push-action
+    #- name: Push changes to generator-update branch
+    #  uses: ad-m/github-push-action@master
+    #  with:
+    #    github_token: ${{ secrets.GITHUB_TOKEN }}
+    #    branch: ${{ GENERATOR_BRANCH }}
+    - name: Push changes to generator-update branch
+      run: |
+        git push --set-upstream origin ${{ GENERATOR_BRANCH }}
 
-      # see https://github.com/vsoch/pull-request-action
-      - name: Create pull request
-        uses: vsoch/pull-request-action@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH_PREFIX: ${{ GENERATOR_BRANCH }}
-          PULL_REQUEST_BRANCH: 'master'
-          PULL_REQUEST_TITLE: 'Generator update'
-          PULL_REQUEST_BODY: 'Regenerated using latest generator :rocket:'
+    # see https://github.com/vsoch/pull-request-action
+    - name: Create pull request
+      uses: vsoch/pull-request-action@master
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        BRANCH_PREFIX: ${{ GENERATOR_BRANCH }}
+        PULL_REQUEST_BRANCH: 'master'
+        PULL_REQUEST_TITLE: 'Generator update'
+        PULL_REQUEST_BODY: 'Regenerated using latest generator :rocket:'
