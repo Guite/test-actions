@@ -21,4 +21,4 @@ jobs:
       with:
         model-name: 'MultiHook.mostapp'
         module-name: 'Zikula/MultiHookModule'
-        verbose: true
+        verbose: 'true'
