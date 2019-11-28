@@ -33,7 +33,7 @@ jobs:
       run: |
         echo ::set-env name=PULL_REQUEST_TITLE::"Generator update $(date +%d-%m-%Y)"
         echo ::set-env name=PULL_REQUEST_BODY::"This PR was auto-generated on $(date +%d-%m-%Y) \
-          with latest generator using [generator-action](https://github.com/Guite/generator-action/) :white_check_mark:"
+          with latest generator using [generator-action](https://github.com/Guite/generator-action/) :tada:"
 
     # see https://github.com/peter-evans/create-pull-request
     - name: Commit changes and create/update pull request
