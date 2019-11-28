@@ -33,21 +33,11 @@ jobs:
         module_name: 'Zikula/MultiHookModule'
         verbose: true
 
-    - name: Commit files
+    - name: Commit changes and push generator-update branch
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         git commit -a -m "Regenerated using latest generator :rocket:"
-
-    # see https://github.com/ad-m/github-push-action
-    #- name: Push changes to generator-update branch
-    #  uses: ad-m/github-push-action@master
-    #  with:
-    #    github_token: ${{ secrets.GITHUB_TOKEN }}
-    #    branch: ${{ GENERATOR_BRANCH }}
-    - name: Push changes to generator-update branch
-      #run: git push --set-upstream origin ${{ GENERATOR_BRANCH }}
-      run: |
         git push --set-upstream origin generator-update
 
     # see https://github.com/vsoch/pull-request-action
