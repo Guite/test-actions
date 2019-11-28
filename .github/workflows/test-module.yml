@@ -23,11 +23,11 @@ jobs:
     - name: Build and test
       uses: guite/zikula-action@master
       with:
-        vendor-name: 'Zikula'
-        module-name: 'MultiHook'
-        module-version: '1.0.0'
-        core-version: 'ZK3DEV'
-        create-artifacts: true
+        vendor_name: 'Zikula'
+        module_name: 'MultiHook'
+        module_version: '1.0.0'
+        core_version: 'ZK3DEV'
+        create_artifacts: true
       env:
         DATABASE_URL: mysql://root:zikula@127.0.0.1:${{ job.services.mysql.ports['3306'] }}/zikula
 
