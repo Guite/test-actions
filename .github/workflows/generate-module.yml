@@ -9,8 +9,8 @@ on:
 
 jobs:
   build:
-    env:
-      GENERATOR_BRANCH: 'generator-update'
+#    env:
+#      GENERATOR_BRANCH: 'generator-update'
 
     # This job runs on Linux
     runs-on: ubuntu-latest
@@ -44,15 +44,17 @@ jobs:
     #    github_token: ${{ secrets.GITHUB_TOKEN }}
     #    branch: ${{ GENERATOR_BRANCH }}
     - name: Push changes to generator-update branch
+      #run: git push --set-upstream origin ${{ GENERATOR_BRANCH }}
       run: |
-        git push --set-upstream origin ${{ GENERATOR_BRANCH }}
+        git push --set-upstream origin generator-update
 
     # see https://github.com/vsoch/pull-request-action
     - name: Create pull request
       uses: vsoch/pull-request-action@master
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        BRANCH_PREFIX: ${{ GENERATOR_BRANCH }}
+        #BRANCH_PREFIX: ${{ GENERATOR_BRANCH }}
+        BRANCH_PREFIX: 'generator-update'
         PULL_REQUEST_BRANCH: 'master'
         PULL_REQUEST_TITLE: 'Generator update'
         PULL_REQUEST_BODY: 'Regenerated using latest generator :rocket:'
