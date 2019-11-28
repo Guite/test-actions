@@ -23,6 +23,8 @@ jobs:
     - name: Create and switch to generator branch
       run: |
         ./.github/scripts/handle-branch.sh
+      env:
+        GENERATOR_BRANCH: 'generator-update'
 
     - name: Call standalone generator
       uses: guite/generator-action@master
