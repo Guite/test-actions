@@ -9,4 +9,5 @@ else
     echo "Branch $GENERATOR_BRANCH does not exist"
     git checkout master
     git branch $GENERATOR_BRANCH
+    git branch --set-upstream-to $GENERATOR_BRANCH
 fi
