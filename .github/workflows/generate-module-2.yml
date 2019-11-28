@@ -13,12 +13,12 @@ jobs:
     - name: Call standalone generator
       uses: guite/generator-action@master
       with:
-        model-name: 'MultiHook.mostapp'
-        module-name: 'Zikula/MultiHookModule'
+        model_name: 'MultiHook.mostapp'
+        module_name: 'Zikula/MultiHookModule'
 
     - name: Call standalone generator (verbose)
       uses: guite/generator-action@master
       with:
-        model-name: 'MultiHook.mostapp'
-        module-name: 'Zikula/MultiHookModule'
-        verbose: 'true'
+        model_name: 'MultiHook.mostapp'
+        module_name: 'Zikula/MultiHookModule'
+        verbose: true
