@@ -1,4 +1,5 @@
 # Test playground
+
 Proof of concept for using the GitHub Actions for Zikula and ModuleStudio standalone generator.
 
 [![](https://github.com/Guite/test-actions/workflows/Generate%20module/badge.svg)](https://github.com/Guite/test-actions/actions?query=workflow%3A"Generate+module")
