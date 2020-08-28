@@ -61,7 +61,7 @@ abstract class AbstractEntryFormAwareHookSubscriber implements HookSubscriberInt
             // Display hook for create/edit forms.
             FormAwareCategory::TYPE_EDIT => 'zikulamultihookmodule.form_aware_hook.entries.edit',
             // Process the results of the edit form after the main form is processed.
-            FormAwareCategory::TYPE_PROCESS_EDIT => 'zikulamultihookmodule.form_aware_hook.entries.process_edit'
+            FormAwareCategory::TYPE_PROCESS_EDIT => 'zikulamultihookmodule.form_aware_hook.entries.process_edit',
         ];
     }
 }

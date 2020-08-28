@@ -134,7 +134,7 @@ abstract class AbstractAppSettings
     protected $replaceNeedles = true;
     
     /**
-     * The amount of entries shown per page
+     * The amount of entries shown per page.
      *
      * @Assert\Type(type="integer")
      * @Assert\NotBlank
@@ -146,7 +146,7 @@ abstract class AbstractAppSettings
     protected $entryEntriesPerPage = 10;
     
     /**
-     * Whether only own entries should be shown on view pages by default or not
+     * Whether only own entries should be shown on view pages by default or not.
      *
      * @Assert\NotNull
      * @Assert\Type(type="bool")
@@ -174,7 +174,6 @@ abstract class AbstractAppSettings
      * @var bool
      */
     protected $allowModerationSpecificCreationDateForEntry = false;
-    
     
     public function __construct(
         VariableApiInterface $variableApi

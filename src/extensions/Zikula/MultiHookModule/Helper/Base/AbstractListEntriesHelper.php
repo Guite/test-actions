@@ -73,7 +73,6 @@ abstract class AbstractListEntriesHelper
         return $result;
     }
     
-    
     /**
      * Extract concatenated multi selection.
      */
@@ -92,7 +91,6 @@ abstract class AbstractListEntriesHelper
     
         return $listValues;
     }
-    
     
     /**
      * Determine whether a certain dropdown field has a multi selection or not.
@@ -119,7 +117,6 @@ abstract class AbstractListEntriesHelper
     
         return $result;
     }
-    
     
     /**
      * Get entries for a certain dropdown field.

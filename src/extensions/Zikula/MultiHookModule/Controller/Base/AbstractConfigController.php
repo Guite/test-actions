@@ -69,7 +69,7 @@ abstract class AbstractConfigController extends AbstractController
         }
         
         $templateParameters = [
-            'form' => $form->createView()
+            'form' => $form->createView(),
         ];
         
         // render the config form

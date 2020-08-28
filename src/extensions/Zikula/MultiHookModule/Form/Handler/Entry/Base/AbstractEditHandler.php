@@ -117,6 +117,7 @@ abstract class AbstractEditHandler extends EditHandler
         $codes[] = 'userIndex';
         // admin index page of entry area
         $codes[] = 'adminIndex';
+    
         // user list of entries
         $codes[] = 'userView';
         // admin list of entries
@@ -125,7 +126,6 @@ abstract class AbstractEditHandler extends EditHandler
         $codes[] = 'userOwnView';
         // admin list of own entries
         $codes[] = 'adminOwnView';
-    
     
         return $codes;
     }

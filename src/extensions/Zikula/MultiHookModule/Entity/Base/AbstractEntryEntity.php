@@ -58,7 +58,7 @@ abstract class AbstractEntryEntity extends EntityAccess implements Translatable
     protected $id = 0;
     
     /**
-     * the current workflow state
+     * The current workflow state.
      *
      * @ORM\Column(length=20)
      * @Assert\NotBlank
@@ -126,7 +126,8 @@ abstract class AbstractEntryEntity extends EntityAccess implements Translatable
      *
      * @Assert\Locale()
      * @Gedmo\Locale
-     * @var string $locale
+     *
+     * @var string
      */
     protected $locale;
     
@@ -256,7 +257,7 @@ abstract class AbstractEntryEntity extends EntityAccess implements Translatable
     public function createUrlArgs(): array
     {
         return [
-            'id' => $this->getId()
+            'id' => $this->getId(),
         ];
     }
     

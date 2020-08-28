@@ -38,6 +38,7 @@ abstract class AbstractEntryTranslationEntity extends AbstractTranslation
     
     /**
      * Use integer instead of string for increased performance.
+     *
      * @see https://github.com/Atlantic18/DoctrineExtensions/issues/1512
      *
      * @var int

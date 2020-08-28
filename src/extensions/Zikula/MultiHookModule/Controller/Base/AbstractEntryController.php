@@ -44,142 +44,139 @@ use Zikula\MultiHookModule\Helper\WorkflowHelper;
 abstract class AbstractEntryController extends AbstractController
 {
     
-    /**
-     * This is the default action handling the index area called without defining arguments.
-     *
-     * @throws AccessDeniedException Thrown if the user doesn't have required permissions
-     */
-    protected function indexInternal(
-        Request $request,
-        PermissionHelper $permissionHelper,
-        bool $isAdmin = false
-    ): Response {
-        $objectType = 'entry';
-        // permission check
-        $permLevel = $isAdmin ? ACCESS_ADMIN : ACCESS_OVERVIEW;
-        if (!$permissionHelper->hasComponentPermission($objectType, $permLevel)) {
-            throw new AccessDeniedException();
-        }
-        
-        $templateParameters = [
-            'routeArea' => $isAdmin ? 'admin' : '',
-        ];
-        
-        return $this->redirectToRoute('zikulamultihookmodule_entry_' . $templateParameters['routeArea'] . 'view');
-    }
+            /**
+             * This is the default action handling the index area called without defining arguments.
+             *
+             * @throws AccessDeniedException Thrown if the user doesn't have required permissions
+             */
+            protected function indexInternal(
+                Request $request,
+                PermissionHelper $permissionHelper,
+                bool $isAdmin = false
+            ): Response {
+                $objectType = 'entry';
+                // permission check
+                $permLevel = $isAdmin ? ACCESS_ADMIN : ACCESS_OVERVIEW;
+                if (!$permissionHelper->hasComponentPermission($objectType, $permLevel)) {
+                    throw new AccessDeniedException();
+                }
+                
+                $templateParameters = [
+                    'routeArea' => $isAdmin ? 'admin' : '',
+                ];
+                
+                return $this->redirectToRoute('zikulamultihookmodule_entry_' . $templateParameters['routeArea'] . 'view');
+            }
     
+            /**
+             * This action provides an item list overview.
+             *
+             * @throws AccessDeniedException Thrown if the user doesn't have required permissions
+             * @throws Exception
+             */
+            protected function viewInternal(
+                Request $request,
+                RouterInterface $router,
+                PermissionHelper $permissionHelper,
+                ControllerHelper $controllerHelper,
+                ViewHelper $viewHelper,
+                string $sort,
+                string $sortdir,
+                int $page,
+                int $num,
+                bool $isAdmin = false
+            ): Response {
+                $objectType = 'entry';
+                // permission check
+                $permLevel = $isAdmin ? ACCESS_ADMIN : ACCESS_READ;
+                if (!$permissionHelper->hasComponentPermission($objectType, $permLevel)) {
+                    throw new AccessDeniedException();
+                }
+                
+                $templateParameters = [
+                    'routeArea' => $isAdmin ? 'admin' : '',
+                ];
+                
+                $request->query->set('sort', $sort);
+                $request->query->set('sortdir', $sortdir);
+                $request->query->set('page', $page);
+                
+                $routeName = 'zikulamultihookmodule_entry_' . ($isAdmin ? 'admin' : '') . 'view';
+                $sortableColumns = new SortableColumns($router, $routeName, 'sort', 'sortdir');
+                
+                $sortableColumns->addColumns([
+                    new Column('shortForm'),
+                    new Column('longForm'),
+                    new Column('title'),
+                    new Column('entryType'),
+                    new Column('active'),
+                    new Column('createdBy'),
+                    new Column('createdDate'),
+                    new Column('updatedBy'),
+                    new Column('updatedDate'),
+                ]);
+                
+                $templateParameters = $controllerHelper->processViewActionParameters(
+                    $objectType,
+                    $sortableColumns,
+                    $templateParameters,
+                    true
+                );
+                
+                // filter by permissions
+                $templateParameters['items'] = $permissionHelper->filterCollection(
+                    $objectType,
+                    $templateParameters['items'],
+                    $permLevel
+                );
+                
+                // fetch and return the appropriate template
+                return $viewHelper->processTemplate($objectType, 'view', $templateParameters);
+            }
     
-    /**
-     * This action provides an item list overview.
-     *
-     * @throws AccessDeniedException Thrown if the user doesn't have required permissions
-     * @throws Exception
-     */
-    protected function viewInternal(
-        Request $request,
-        RouterInterface $router,
-        PermissionHelper $permissionHelper,
-        ControllerHelper $controllerHelper,
-        ViewHelper $viewHelper,
-        string $sort,
-        string $sortdir,
-        int $page,
-        int $num,
-        bool $isAdmin = false
-    ): Response {
-        $objectType = 'entry';
-        // permission check
-        $permLevel = $isAdmin ? ACCESS_ADMIN : ACCESS_READ;
-        if (!$permissionHelper->hasComponentPermission($objectType, $permLevel)) {
-            throw new AccessDeniedException();
-        }
-        
-        $templateParameters = [
-            'routeArea' => $isAdmin ? 'admin' : '',
-        ];
-        
-        $request->query->set('sort', $sort);
-        $request->query->set('sortdir', $sortdir);
-        $request->query->set('page', $page);
-        
-        $routeName = 'zikulamultihookmodule_entry_' . ($isAdmin ? 'admin' : '') . 'view';
-        $sortableColumns = new SortableColumns($router, $routeName, 'sort', 'sortdir');
-        
-        $sortableColumns->addColumns([
-            new Column('shortForm'),
-            new Column('longForm'),
-            new Column('title'),
-            new Column('entryType'),
-            new Column('active'),
-            new Column('createdBy'),
-            new Column('createdDate'),
-            new Column('updatedBy'),
-            new Column('updatedDate'),
-        ]);
-        
-        $templateParameters = $controllerHelper->processViewActionParameters(
-            $objectType,
-            $sortableColumns,
-            $templateParameters,
-            true
-        );
-        
-        // filter by permissions
-        $templateParameters['items'] = $permissionHelper->filterCollection(
-            $objectType,
-            $templateParameters['items'],
-            $permLevel
-        );
-        
-        // fetch and return the appropriate template
-        return $viewHelper->processTemplate($objectType, 'view', $templateParameters);
-    }
-    
-    
-    /**
-     * This action provides a handling of edit requests.
-     *
-     * @throws AccessDeniedException Thrown if the user doesn't have required permissions
-     * @throws RuntimeException Thrown if another critical error occurs (e.g. workflow actions not available)
-     * @throws Exception
-     */
-    protected function editInternal(
-        Request $request,
-        PermissionHelper $permissionHelper,
-        ControllerHelper $controllerHelper,
-        ViewHelper $viewHelper,
-        EditHandler $formHandler,
-        bool $isAdmin = false
-    ): Response {
-        $objectType = 'entry';
-        // permission check
-        $permLevel = $isAdmin ? ACCESS_ADMIN : ACCESS_EDIT;
-        if (!$permissionHelper->hasComponentPermission($objectType, $permLevel)) {
-            throw new AccessDeniedException();
-        }
-        
-        $templateParameters = [
-            'routeArea' => $isAdmin ? 'admin' : ''
-        ];
-        
-        // delegate form processing to the form handler
-        $result = $formHandler->processForm($templateParameters);
-        if ($result instanceof RedirectResponse) {
-            return $result;
-        }
-        
-        $templateParameters = $formHandler->getTemplateParameters();
-        
-        $templateParameters = $controllerHelper->processEditActionParameters(
-            $objectType,
-            $templateParameters,
-            $templateParameters['entry']->supportsHookSubscribers()
-        );
-        
-        // fetch and return the appropriate template
-        return $viewHelper->processTemplate($objectType, 'edit', $templateParameters);
-    }
-    
+            /**
+             * This action provides a handling of edit requests.
+             *
+             * @throws AccessDeniedException Thrown if the user doesn't have required permissions
+             * @throws RuntimeException Thrown if another critical error occurs (e.g. workflow actions not available)
+             * @throws Exception
+             */
+            protected function editInternal(
+                Request $request,
+                PermissionHelper $permissionHelper,
+                ControllerHelper $controllerHelper,
+                ViewHelper $viewHelper,
+                EditHandler $formHandler,
+                bool $isAdmin = false
+            ): Response {
+                $objectType = 'entry';
+                // permission check
+                $permLevel = $isAdmin ? ACCESS_ADMIN : ACCESS_EDIT;
+                if (!$permissionHelper->hasComponentPermission($objectType, $permLevel)) {
+                    throw new AccessDeniedException();
+                }
+                
+                $templateParameters = [
+                    'routeArea' => $isAdmin ? 'admin' : '',
+                ];
+                
+                // delegate form processing to the form handler
+                $result = $formHandler->processForm($templateParameters);
+                if ($result instanceof RedirectResponse) {
+                    return $result;
+                }
+                
+                $templateParameters = $formHandler->getTemplateParameters();
+                
+                $templateParameters = $controllerHelper->processEditActionParameters(
+                    $objectType,
+                    $templateParameters,
+                    $templateParameters['entry']->supportsHookSubscribers()
+                );
+                
+                // fetch and return the appropriate template
+                return $viewHelper->processTemplate($objectType, 'edit', $templateParameters);
+            }
     
     /**
      * Process status changes for multiple items.

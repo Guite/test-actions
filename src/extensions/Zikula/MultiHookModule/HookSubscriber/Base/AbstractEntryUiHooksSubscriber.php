@@ -69,7 +69,7 @@ abstract class AbstractEntryUiHooksSubscriber implements HookSubscriberInterface
             // Validate input from an item to be deleted.
             UiHooksCategory::TYPE_VALIDATE_DELETE => 'zikulamultihookmodule.ui_hooks.entries.validate_delete',
             // Perform the final delete actions for a deleted item.
-            UiHooksCategory::TYPE_PROCESS_DELETE => 'zikulamultihookmodule.ui_hooks.entries.process_delete'
+            UiHooksCategory::TYPE_PROCESS_DELETE => 'zikulamultihookmodule.ui_hooks.entries.process_delete',
         ];
     }
 }

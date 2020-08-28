@@ -90,7 +90,7 @@ abstract class AbstractEditHandler
     /**
      * Identifier of treated entity.
      *
-     * @var integer
+     * @var int
      */
     protected $idValue = 0;
 
@@ -118,7 +118,7 @@ abstract class AbstractEditHandler
     /**
      * Whether the PageLock extension is used for this entity type or not.
      *
-     * @var boolean
+     * @var bool
      */
     protected $hasPageLockSupport = false;
 
@@ -364,7 +364,6 @@ abstract class AbstractEditHandler
     
         // save entity reference for later reuse
         $this->entityRef = $entity;
-    
         
         if (true === $this->hasTranslatableFields) {
             $this->initTranslationsForEditing();

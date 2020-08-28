@@ -251,9 +251,9 @@ abstract class AbstractConfigType extends AbstractType
             'label' => 'Entry entries per page:',
             'label_attr' => [
                 'class' => 'tooltips',
-                'title' => 'The amount of entries shown per page',
+                'title' => 'The amount of entries shown per page.',
             ],
-            'help' => 'The amount of entries shown per page',
+            'help' => 'The amount of entries shown per page.',
             'empty_data' => 10,
             'attr' => [
                 'maxlength' => 11,
@@ -267,9 +267,9 @@ abstract class AbstractConfigType extends AbstractType
             'label' => 'Show only own entries:',
             'label_attr' => [
                 'class' => 'tooltips switch-custom',
-                'title' => 'Whether only own entries should be shown on view pages by default or not',
+                'title' => 'Whether only own entries should be shown on view pages by default or not.',
             ],
-            'help' => 'Whether only own entries should be shown on view pages by default or not',
+            'help' => 'Whether only own entries should be shown on view pages by default or not.',
             'attr' => [
                 'class' => '',
                 'title' => 'The show only own entries option',
@@ -322,8 +322,8 @@ abstract class AbstractConfigType extends AbstractType
             'label' => 'Update configuration',
             'icon' => 'fa-check',
             'attr' => [
-                'class' => 'btn-success'
-            ]
+                'class' => 'btn-success',
+            ],
         ]);
         $builder->add('reset', ResetType::class, [
             'label' => 'Reset',
@@ -352,7 +352,7 @@ abstract class AbstractConfigType extends AbstractType
         $resolver->setDefaults([
             // define class for underlying data
             'data_class' => AppSettings::class,
-            'translation_domain' => 'config'
+            'translation_domain' => 'config',
         ]);
     }
 }

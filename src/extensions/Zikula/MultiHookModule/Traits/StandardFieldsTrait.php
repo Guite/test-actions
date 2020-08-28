@@ -31,6 +31,7 @@ trait StandardFieldsTrait
      * @Gedmo\Blameable(on="create")
      * @ORM\ManyToOne(targetEntity="Zikula\UsersModule\Entity\UserEntity")
      * @ORM\JoinColumn(referencedColumnName="uid")
+     *
      * @var UserEntity
      */
     protected $createdBy;
@@ -39,7 +40,8 @@ trait StandardFieldsTrait
      * @ORM\Column(type="datetime")
      * @Gedmo\Timestampable(on="create")
      * @Assert\Type("\DateTimeInterface")
-     * @var DateTimeInterface $createdDate
+     *
+     * @var DateTimeInterface
      */
     protected $createdDate;
     
@@ -47,6 +49,7 @@ trait StandardFieldsTrait
      * @Gedmo\Blameable(on="update")
      * @ORM\ManyToOne(targetEntity="Zikula\UsersModule\Entity\UserEntity")
      * @ORM\JoinColumn(referencedColumnName="uid")
+     *
      * @var UserEntity
      */
     protected $updatedBy;
@@ -55,7 +58,8 @@ trait StandardFieldsTrait
      * @ORM\Column(type="datetime")
      * @Gedmo\Timestampable(on="update")
      * @Assert\Type("\DateTimeInterface")
-     * @var DateTimeInterface $updatedDate
+     *
+     * @var DateTimeInterface
      */
     protected $updatedDate;
     

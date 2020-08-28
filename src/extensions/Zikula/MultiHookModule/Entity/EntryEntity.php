@@ -24,6 +24,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
  * Entity class that defines the entity structure and behaviours.
  *
  * This is the concrete entity class for entry entities.
+ *
  * @Gedmo\TranslationEntity(class="Zikula\MultiHookModule\Entity\EntryTranslationEntity")
  * @ORM\Entity(repositoryClass="Zikula\MultiHookModule\Entity\Repository\EntryRepository")
  * @ORM\Table(name="zikula_multih_entry",
