@@ -64,7 +64,6 @@ abstract class AbstractEntityDisplayHelper
         return $this->translator->trans(
             '%shortForm%',
             [
-                ,
                 '%shortForm%' => $entity->getShortForm(),
             ],
             'entry'
