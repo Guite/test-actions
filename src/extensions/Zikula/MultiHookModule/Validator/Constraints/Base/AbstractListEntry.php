@@ -24,32 +24,37 @@ use Symfony\Component\Validator\Constraint;
 abstract class AbstractListEntry extends Constraint
 {
     /**
-     * Entity name
+     * Entity name.
+     *
      * @var string
      */
     public $entityName = '';
 
     /**
-     * Property name
+     * Property name.
+     *
      * @var string
      */
     public $propertyName = '';
 
     /**
-     * Whether multiple list values are allowed or not
-     * @var boolean
+     * Whether multiple list values are allowed or not.
+     *
+     * @var bool
      */
     public $multiple = false;
 
     /**
-     * Minimum amount of values for multiple lists
-     * @var integer
+     * Minimum amount of values for multiple lists.
+     *
+     * @var int
      */
     public $min;
 
     /**
-     * Maximum amount of values for multiple lists
-     * @var integer
+     * Maximum amount of values for multiple lists.
+     *
+     * @var int
      */
     public $max;
 }

@@ -316,10 +316,8 @@ abstract class AbstractWorkflowEventsListener implements EventSubscriberInterfac
     
     /**
      * Checks whether this listener is responsible for the given entity or not.
-     *
-     * @param object $entity The given entity
      */
-    protected function isEntityManagedByThisBundle($entity): bool
+    protected function isEntityManagedByThisBundle(object $entity): bool
     {
         if (!($entity instanceof EntityAccess)) {
             return false;

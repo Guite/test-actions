@@ -72,7 +72,7 @@ abstract class AbstractTwigExtension extends AbstractExtension
     {
         return [
             new TwigFunction('zikulamultihookmodule_objectTypeSelector', [$this, 'getObjectTypeSelector']),
-            new TwigFunction('zikulamultihookmodule_templateSelector', [$this, 'getTemplateSelector'])
+            new TwigFunction('zikulamultihookmodule_templateSelector', [$this, 'getTemplateSelector']),
         ];
     }
     

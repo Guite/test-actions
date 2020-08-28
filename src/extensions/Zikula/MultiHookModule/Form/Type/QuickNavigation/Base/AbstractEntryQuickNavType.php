@@ -68,7 +68,7 @@ abstract class AbstractEntryQuickNavType extends AbstractType
             'label' => 'OK',
             'attr' => [
                 'class' => 'btn-secondary btn-sm',
-            ]
+            ],
         ]);
     }
 
@@ -128,7 +128,7 @@ abstract class AbstractEntryQuickNavType extends AbstractType
                 'maxlength' => 255,
                 'class' => 'form-control-sm',
             ],
-            'required' => false
+            'required' => false,
         ]);
     }
 
@@ -214,7 +214,7 @@ abstract class AbstractEntryQuickNavType extends AbstractType
             'placeholder' => 'All',
             'choices' => [
                 'No' => 'no',
-                'Yes' => 'yes'
+                'Yes' => 'yes',
             ]
         ]);
     }

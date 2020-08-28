@@ -42,7 +42,7 @@ abstract class AbstractThemeListener implements EventSubscriberInterface
     public static function getSubscribedEvents()
     {
         return [
-            TwigPreRenderEvent::class  => ['preRender', 5],
+            TwigPreRenderEvent::class => ['preRender', 5],
             TwigPostRenderEvent::class => ['postRender', 5],
             KernelEvents::RESPONSE => ['injectDefaultAssetsIntoRawPage', 1020], // after DefaultPageAssetSetterListener
         ];

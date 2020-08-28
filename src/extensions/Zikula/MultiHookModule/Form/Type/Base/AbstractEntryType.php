@@ -202,8 +202,8 @@ abstract class AbstractEntryType extends AbstractType
                 'label' => $action['title'],
                 'icon' => 'delete' === $action['id'] ? 'fa-trash-alt' : '',
                 'attr' => [
-                    'class' => $action['buttonClass']
-                ]
+                    'class' => $action['buttonClass'],
+                ],
             ]);
             if ('create' === $options['mode'] && 'submit' === $action['id']) {
                 // add additional button to submit item and return to create form
@@ -211,8 +211,8 @@ abstract class AbstractEntryType extends AbstractType
                     'label' => 'Submit and repeat',
                     'icon' => 'fa-repeat',
                     'attr' => [
-                        'class' => $action['buttonClass']
-                    ]
+                        'class' => $action['buttonClass'],
+                    ],
                 ]);
             }
         }

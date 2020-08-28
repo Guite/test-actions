@@ -16,7 +16,6 @@ declare(strict_types=1);
 
 namespace Zikula\MultiHookModule\Entity\Repository\Base;
 
-use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\Query;
 use Doctrine\ORM\QueryBuilder;

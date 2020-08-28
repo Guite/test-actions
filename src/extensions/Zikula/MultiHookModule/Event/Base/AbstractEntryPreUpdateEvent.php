@@ -29,7 +29,7 @@ abstract class AbstractEntryPreUpdateEvent
     protected $entry;
 
     /**
-     * @var array Entity change set for preUpdate events.
+     * @var array Entity change set for preUpdate events
      */
     protected $entityChangeSet = [];
 

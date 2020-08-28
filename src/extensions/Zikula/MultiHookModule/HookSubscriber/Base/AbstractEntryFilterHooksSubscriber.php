@@ -58,7 +58,7 @@ abstract class AbstractEntryFilterHooksSubscriber implements HookSubscriberInter
     public function getEvents(): array
     {
         return [
-            FilterHooksCategory::TYPE_FILTER => 'zikulamultihookmodule.filter_hooks.entries.filter'
+            FilterHooksCategory::TYPE_FILTER => 'zikulamultihookmodule.filter_hooks.entries.filter',
         ];
     }
 }
