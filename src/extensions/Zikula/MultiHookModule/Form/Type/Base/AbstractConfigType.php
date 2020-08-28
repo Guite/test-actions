@@ -56,7 +56,6 @@ abstract class AbstractConfigType extends AbstractType
      */
     public function addGeneralSettingsFields(FormBuilderInterface $builder, array $options = []): void
     {
-        
         $builder->add('showEditLink', CheckboxType::class, [
             'label' => 'Show edit link:',
             'label_attr' => [
@@ -68,7 +67,6 @@ abstract class AbstractConfigType extends AbstractType
             ],
             'required' => false,
         ]);
-        
         $builder->add('replaceOnlyFirstInstanceOfItems', CheckboxType::class, [
             'label' => 'Replace only first instance of items:',
             'label_attr' => [
@@ -80,7 +78,6 @@ abstract class AbstractConfigType extends AbstractType
             ],
             'required' => false,
         ]);
-        
         $builder->add('applyReplacementsToCodeTags', CheckboxType::class, [
             'label' => 'Apply replacements to code tags:',
             'label_attr' => [
@@ -99,7 +96,6 @@ abstract class AbstractConfigType extends AbstractType
      */
     public function addAbbreviationsAndAcronymsFields(FormBuilderInterface $builder, array $options = []): void
     {
-        
         $builder->add('replaceAbbreviations', CheckboxType::class, [
             'label' => 'Replace abbreviations:',
             'label_attr' => [
@@ -111,7 +107,6 @@ abstract class AbstractConfigType extends AbstractType
             ],
             'required' => false,
         ]);
-        
         $builder->add('replaceAcronyms', CheckboxType::class, [
             'label' => 'Replace acronyms:',
             'label_attr' => [
@@ -123,7 +118,6 @@ abstract class AbstractConfigType extends AbstractType
             ],
             'required' => false,
         ]);
-        
         $builder->add('replaceAbbreviationsWithLongText', CheckboxType::class, [
             'label' => 'Replace abbreviations with long text:',
             'label_attr' => [
@@ -142,7 +136,6 @@ abstract class AbstractConfigType extends AbstractType
      */
     public function addAutomaticLinksFields(FormBuilderInterface $builder, array $options = []): void
     {
-        
         $builder->add('replaceLinks', CheckboxType::class, [
             'label' => 'Replace links:',
             'label_attr' => [
@@ -154,7 +147,6 @@ abstract class AbstractConfigType extends AbstractType
             ],
             'required' => false,
         ]);
-        
         $builder->add('replaceLinksWithTitle', CheckboxType::class, [
             'label' => 'Replace links with title:',
             'label_attr' => [
@@ -166,7 +158,6 @@ abstract class AbstractConfigType extends AbstractType
             ],
             'required' => false,
         ]);
-        
         $builder->add('cssClassForExternalLinks', TextType::class, [
             'label' => 'Css class for external links:',
             'empty_data' => '',
@@ -184,7 +175,6 @@ abstract class AbstractConfigType extends AbstractType
      */
     public function addCensorFields(FormBuilderInterface $builder, array $options = []): void
     {
-        
         $builder->add('replaceCensoredWords', CheckboxType::class, [
             'label' => 'Replace censored words:',
             'label_attr' => [
@@ -196,7 +186,6 @@ abstract class AbstractConfigType extends AbstractType
             ],
             'required' => false,
         ]);
-        
         $builder->add('replaceCensoredWordsWhenTheyArePartOfOtherWords', CheckboxType::class, [
             'label' => 'Replace censored words when they are part of other words:',
             'label_attr' => [
@@ -208,7 +197,6 @@ abstract class AbstractConfigType extends AbstractType
             ],
             'required' => false,
         ]);
-        
         $builder->add('doNotCensorFirstAndLastLetterInWordsWithMoreThanTwoChars', CheckboxType::class, [
             'label' => 'Do not censor first and last letter in words with more than two chars:',
             'label_attr' => [
@@ -227,7 +215,6 @@ abstract class AbstractConfigType extends AbstractType
      */
     public function addNeedlesFields(FormBuilderInterface $builder, array $options = []): void
     {
-        
         $builder->add('replaceNeedles', CheckboxType::class, [
             'label' => 'Replace needles:',
             'label_attr' => [
@@ -246,7 +233,6 @@ abstract class AbstractConfigType extends AbstractType
      */
     public function addListViewsFields(FormBuilderInterface $builder, array $options = []): void
     {
-        
         $builder->add('entryEntriesPerPage', IntegerType::class, [
             'label' => 'Entry entries per page:',
             'label_attr' => [
@@ -262,7 +248,6 @@ abstract class AbstractConfigType extends AbstractType
             ],
             'required' => true,
         ]);
-        
         $builder->add('showOnlyOwnEntries', CheckboxType::class, [
             'label' => 'Show only own entries:',
             'label_attr' => [
@@ -283,7 +268,6 @@ abstract class AbstractConfigType extends AbstractType
      */
     public function addModerationFields(FormBuilderInterface $builder, array $options = []): void
     {
-        
         $builder->add('allowModerationSpecificCreatorForEntry', CheckboxType::class, [
             'label' => 'Allow moderation specific creator for entry:',
             'label_attr' => [
@@ -297,7 +281,6 @@ abstract class AbstractConfigType extends AbstractType
             ],
             'required' => false,
         ]);
-        
         $builder->add('allowModerationSpecificCreationDateForEntry', CheckboxType::class, [
             'label' => 'Allow moderation specific creation date for entry:',
             'label_attr' => [
@@ -330,7 +313,7 @@ abstract class AbstractConfigType extends AbstractType
             'icon' => 'fa-sync',
             'attr' => [
                 'formnovalidate' => 'formnovalidate',
-            ]
+            ],
         ]);
         $builder->add('cancel', SubmitType::class, [
             'label' => 'Cancel',
