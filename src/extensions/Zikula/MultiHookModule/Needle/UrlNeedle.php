@@ -22,7 +22,7 @@ use Zikula\ExtensionsModule\Api\ApiInterface\VariableApiInterface;
 use Zikula\ExtensionsModule\ModuleInterface\MultiHook\NeedleInterface;
 
 /**
- * URL needle
+ * URL needle.
  */
 class UrlNeedle implements NeedleInterface
 {

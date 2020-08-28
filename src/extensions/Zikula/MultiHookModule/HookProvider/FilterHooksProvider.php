@@ -489,7 +489,7 @@ class FilterHooksProvider extends AbstractFilterHooksProvider
             }
         }
 
-        for ($i = 0; $i < $rawcount; $i++) {
+        for ($i = 0; $i < $rawcount; ++$i) {
             $text = str_replace(" MULTIHOOKRAWREPLACEMENT{$i} ", $raws[0][$i], $text);
         }
 

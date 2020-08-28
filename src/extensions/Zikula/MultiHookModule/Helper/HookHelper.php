@@ -63,7 +63,7 @@ class HookHelper extends AbstractHookHelper
             $replace_temp = $long;
         }
 
-        if (true === $showEditLink && $id > 0) {
+        if (true === $showEditLink && 0 < $id) {
             $replace_temp = '<span>' . $replace_temp . ' '
                 . $this->getEditLink($short, $this->translator->trans('Abbreviation'), $id)
                 . '</span>'
@@ -84,7 +84,7 @@ class HookHelper extends AbstractHookHelper
             . $short . '</acronym>'
         ;
 
-        if (true === $showEditLink && $id > 0) {
+        if (true === $showEditLink && 0 < $id) {
             $replace_temp = '<span>' . $replace_temp . ' '
                 . $this->getEditLink($short, $this->translator->trans('Acronym'), $id)
                 . '</span>'
@@ -133,7 +133,7 @@ class HookHelper extends AbstractHookHelper
             . '>' . $linkText . '</a>'
         ;
 
-        if (true === $showEditLink && $id > 0) {
+        if (true === $showEditLink && 0 < $id) {
             $replace_temp = '<span>' . $replace_temp . ' '
                 . $this->getEditLink($short, $this->translator->trans('Link'), $id)
                 . '</span>'
@@ -154,13 +154,13 @@ class HookHelper extends AbstractHookHelper
         $replace_temp = str_repeat('*', $len);
         if (true === $doNotCensorFirstAndLastLetterInWordsWithMoreThanTwoChars && 2 < $len) {
             $replace_temp[0] = $short[0];
-            $id = strlen($replace_temp) - 1;
+            $id = mb_strlen($replace_temp) - 1;
             $replace_temp[$id] = $short[$len - 1];
         }
 
         $id = $abac['id'] ?? 0;
 
-        if (true === $showEditLink && $id > 0) {
+        if (true === $showEditLink && 0 < $id) {
             $replace_temp = '<span>' . $replace_temp . ' '
                 . $this->getEditLink($short, $this->translator->trans('Censor'), $id)
                 . '</span>'
