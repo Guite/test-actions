@@ -119,7 +119,6 @@ abstract class AbstractEntryEntity extends EntityAccess implements Translatable
      */
     protected $active = true;
     
-    
     /**
      * Used locale to override Translation listener's locale.
      * This is not a mapped field of entity metadata, just a simple property.

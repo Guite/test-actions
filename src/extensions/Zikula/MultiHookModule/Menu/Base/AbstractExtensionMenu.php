@@ -91,7 +91,7 @@ abstract class AbstractExtensionMenu implements ExtensionMenuInterface
             && $this->permissionHelper->hasComponentPermission('entry', $permLevel)
         ) {
             $menu->addChild('Entries', [
-                'route' => 'zikulamultihookmodule_entry_' . $routeArea . 'view'
+                'route' => 'zikulamultihookmodule_entry_' . $routeArea . 'view',
             ])
                 ->setLinkAttribute('title', 'Entries list')
                 ->setExtra('translation_domain', 'entry')

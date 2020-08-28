@@ -94,7 +94,6 @@ abstract class AbstractEntryType extends AbstractType
      */
     public function addEntityFields(FormBuilderInterface $builder, array $options = []): void
     {
-        
         $builder->add('longForm', TextType::class, [
             'label' => 'Long form:',
             'label_attr' => [
@@ -110,7 +109,6 @@ abstract class AbstractEntryType extends AbstractType
             ],
             'required' => false,
         ]);
-        
         $builder->add('title', TextType::class, [
             'label' => 'Title:',
             'label_attr' => [
@@ -140,12 +138,11 @@ abstract class AbstractEntryType extends AbstractType
                     $builder->add('translations' . $language, TranslationType::class, [
                         'fields' => $translatableFields,
                         'mandatory_fields' => $mandatoryFields[$language],
-                        'values' => $options['translations'][$language] ?? []
+                        'values' => $options['translations'][$language] ?? [],
                     ]);
                 }
             }
         }
-        
         $builder->add('shortForm', TextType::class, [
             'label' => 'Short form:',
             'empty_data' => '',
@@ -156,7 +153,6 @@ abstract class AbstractEntryType extends AbstractType
             ],
             'required' => true,
         ]);
-        
         $listEntries = $this->listHelper->getEntries('entry', 'entryType');
         $choices = [];
         $choiceAttributes = [];
@@ -177,7 +173,6 @@ abstract class AbstractEntryType extends AbstractType
             'multiple' => false,
             'expanded' => false,
         ]);
-        
         $builder->add('active', CheckboxType::class, [
             'label' => 'Active:',
             'label_attr' => [
@@ -221,7 +216,7 @@ abstract class AbstractEntryType extends AbstractType
             'icon' => 'fa-sync',
             'attr' => [
                 'formnovalidate' => 'formnovalidate',
-            ]
+            ],
         ]);
         $builder->add('cancel', SubmitType::class, [
             'label' => 'Cancel',

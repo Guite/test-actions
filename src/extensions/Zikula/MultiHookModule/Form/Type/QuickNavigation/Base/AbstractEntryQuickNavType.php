@@ -215,7 +215,7 @@ abstract class AbstractEntryQuickNavType extends AbstractType
             'choices' => [
                 'No' => 'no',
                 'Yes' => 'yes',
-            ]
+            ],
         ]);
     }
 
