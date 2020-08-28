@@ -147,7 +147,6 @@ abstract class AbstractListEntriesHelper
         return $entries;
     }
     
-    
     /**
      * Get 'workflow state' list entries.
      */

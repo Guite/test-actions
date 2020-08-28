@@ -164,10 +164,10 @@ abstract class AbstractCollectionFilterHelper
                 $v = (string) $v;
                 if ('workflowState' === $k && 0 === mb_strpos($v, '!')) {
                     $qb->andWhere('tbl.' . $k . ' != :' . $k)
-                       ->setParameter($k, substr($v, 1));
+                       ->setParameter($k, mb_substr($v, 1));
                 } elseif (0 === mb_strpos($v, '%')) {
                     $qb->andWhere('tbl.' . $k . ' LIKE :' . $k)
-                       ->setParameter($k, '%' . substr($v, 1) . '%');
+                       ->setParameter($k, '%' . mb_substr($v, 1) . '%');
                 } else {
                     $qb->andWhere('tbl.' . $k . ' = :' . $k)
                        ->setParameter($k, $v);
@@ -244,7 +244,7 @@ abstract class AbstractCollectionFilterHelper
     /**
      * Adds a filter for the createdBy field.
      */
-    public function addCreatorFilter(QueryBuilder $qb, int $userId = null): QueryBuilder
+    public function addCreatorFilter(QueryBuilder $qb, ?int $userId = null): QueryBuilder
     {
         if (null === $userId) {
             $userId = $this->currentUserApi->isLoggedIn()

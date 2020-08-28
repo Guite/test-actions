@@ -206,9 +206,9 @@ abstract class AbstractControllerHelper
                 } elseif ('sortdir' === $fieldName && !empty($fieldValue)) {
                     $sortdir = $fieldValue;
                 } elseif (
-                    false === stripos($fieldName, 'thumbRuntimeOptions')
-                    && false === stripos($fieldName, 'featureActivationHelper')
-                    && false === stripos($fieldName, 'permissionHelper')
+                    false === mb_stripos($fieldName, 'thumbRuntimeOptions')
+                    && false === mb_stripos($fieldName, 'featureActivationHelper')
+                    && false === mb_stripos($fieldName, 'permissionHelper')
                 ) {
                     // set filter as query argument, fetched inside CollectionFilterHelper
                     $request->query->set($fieldName, $fieldValue);
@@ -295,7 +295,7 @@ abstract class AbstractControllerHelper
             $request->attributes->set('_route_params', $routeParams);
         }
         $sortdir = $request->query->get('sortdir', 'ASC');
-        if (false !== strpos($sort, ' DESC')) {
+        if (false !== mb_strpos($sort, ' DESC')) {
             $sort = str_replace(' DESC', '', $sort);
             $sortdir = 'desc';
         }
