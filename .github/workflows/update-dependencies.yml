@@ -21,8 +21,8 @@ jobs:
       uses: peter-evans/create-pull-request@v3
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-        commit-message: ':arrow_up: update dependencies'
-        title: ':arrow_up: update dependencies'
+        commit-message: '⬆️ update dependencies'
+        title: '⬆️ update dependencies'
         body: This is an auto-generated PR with dependency updates.
         labels: dep-updates
         branch: dep-updates
