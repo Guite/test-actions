@@ -30,3 +30,4 @@ jobs:
     - name: Check outputs
       run: |
         echo "Created pull request number: ${{ env.PULL_REQUEST_NUMBER }}"
+        echo "Pull Request URL: ${{ steps.cpr.outputs.pull-request-url }}"
