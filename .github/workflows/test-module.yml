@@ -16,7 +16,7 @@ jobs:
         options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
     steps:
     - name: Checkout sources
-      uses: actions/checkout@9bb56186c3b09b4f86b1c65136769dd318469633 # v4
+      uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
 
     # see https://github.com/Guite/zikula-action
     - name: Build and test
